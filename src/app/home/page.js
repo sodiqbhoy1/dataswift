@@ -6,6 +6,7 @@ import Navbar from "../navbar/page";
 export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50">
+      
       <Head>
         <title>DataSwift - Buy Airtime and Data Instantly</title>
         <meta
@@ -17,14 +18,24 @@ export default function Home() {
       {/* Navbar */}
       <Navbar />
 
-      {/* Hero Section */}
-      <section className="text-center py-32 bg-gradient-to-r from-blue-50 to-blue-100">
-        <div className="max-w-4xl mx-auto px-6">
+      {/* Hero Section with SVG Background */}
+      <section
+        className="text-center py-32 relative overflow-hidden"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23F3F4F6' d='M56.9,-64.2C71.6,-55.6,79.8,-35.5,78.9,-17.3C78,0.8,68.1,17.2,56.6,28.5C45.1,39.8,32.1,46,20.2,46.5C8.3,46.9,-2.4,41.6,-19.7,41C-37,40.4,-60.9,44.7,-67.6,37.1C-74.2,29.5,-63.7,10.1,-58.7,-8.9C-53.6,-27.9,-54,-46.4,-45.2,-56C-36.3,-65.7,-18.2,-66.4,1.5,-68.2C21.1,-70,42.3,-72.8,56.9,-64.2Z' transform='translate(100 100)' /%3E%3C/svg%3E")`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="max-w-4xl mx-auto px-6 relative z-10">
           <h1 className="text-6xl font-bold text-gray-800 mb-6">
             Buy Airtime and Data <br /> in Seconds
           </h1>
-          <p className="text-xl text-gray-600 mb-8">
-            Fast, reliable, and easy to use. Get your airtime and mobile data instantly with DataSwift.
+
+
+          <p className="text-xl text-gray-800 mb-8">
+            Fast, reliable, and easy to use. Get your airtime and mobile data
+            instantly with DataSwift.
           </p>
           <div className="space-x-4">
             <Link
