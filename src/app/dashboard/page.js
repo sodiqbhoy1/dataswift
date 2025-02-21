@@ -1,9 +1,12 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
-import { FaHome, FaUser, FaCog, FaSignOutAlt } from "react-icons/fa"; // Import icons
+import { FaHome, FaUser, FaCog, FaSignOutAlt, FaMobileAlt, FaWifi } from "react-icons/fa"; // Import icons
 import Profile from "./profile/page";
 import Settings from "./settings/page";
+import WalletCard from "./walletCard/page";
+import Airtime from "./airtime/page";
+import Data from "./data/page";
 
 export default function Dashboard() {
   const [activeTab, setActiveTab] = useState("home");
@@ -16,11 +19,15 @@ export default function Dashboard() {
   const renderContent = () => {
     switch (activeTab) {
       case "home":
-        return <div>Welcome to the Dashboard!</div>;
+        return <div> <WalletCard/>  </div>;
       case "profile":
         return <Profile />;
       case "settings":
         return <Settings />;
+      case "airtime":
+        return <Airtime />;
+      case "data":
+        return <Data />;
       default:
         return <div>Select a tab</div>;
     }
@@ -76,6 +83,32 @@ export default function Dashboard() {
             >
               <FaCog className="text-2xl" />
               <span className="text-xs mt-1">Settings</span>
+            </button>
+
+            {/* Airtime Button */}
+            <button
+              onClick={() => setActiveTab("airtime")}
+              className={`flex flex-col items-center justify-center w-full py-2 ${
+                activeTab === "airtime"
+                  ? "text-blue-500"
+                  : "text-gray-700 hover:text-gray-900"
+              }`}
+            >
+              <FaMobileAlt className="text-2xl" />
+              <span className="text-xs mt-1">Buy Airtime</span>
+            </button>
+
+            {/* Data Button */}
+            <button
+              onClick={() => setActiveTab("data")}
+              className={`flex flex-col items-center justify-center w-full py-2 ${
+                activeTab === "data"
+                  ? "text-blue-500"
+                  : "text-gray-700 hover:text-gray-900"
+              }`}
+            >
+              <FaWifi className="text-2xl" />
+              <span className="text-xs mt-1">Buy Data</span>
             </button>
 
             {/* Logout Button */}
