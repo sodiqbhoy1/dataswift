@@ -1,47 +1,94 @@
-"use client"
+"use client";
+import Link from "next/link";
+import { useState } from "react";
+import { FaHome, FaUser, FaCog, FaSignOutAlt } from "react-icons/fa"; // Import icons
+import Profile from "./profile/page";
+import Settings from "./settings/page";
 
 export default function Dashboard() {
-  // Simulated user data (you can fetch this from an API or state)
-  const user = {
-    fullName: "John Doe",
-    walletBalance: 1500, // Assuming this is in Naira (₦)
-    email: "johndoe@example.com",
-    membershipStatus: "Premium", // Could be "Basic", "Premium", etc.
+  const [activeTab, setActiveTab] = useState("home");
+
+  const handleLogout = () => {
+    // Add your logout logic here
+    console.log("User logged out");
+  };
+
+  const renderContent = () => {
+    switch (activeTab) {
+      case "home":
+        return <div>Welcome to the Dashboard!</div>;
+      case "profile":
+        return <Profile />;
+      case "settings":
+        return <Settings />;
+      default:
+        return <div>Select a tab</div>;
+    }
   };
 
   return (
-    <div className="p-8 bg-gray-50">
-      <h1 className="text-3xl font-bold text-teal-800 mb-6">Welcome to Your Dashboard</h1>
-      
-      {/* User Info Card */}
-      <div className="bg-white shadow-md rounded-lg p-6">
-        <h2 className="text-xl font-semibold text-teal-700 mb-2">User Information</h2>
-        
-        {/* Card content */}
-        <div className="space-y-4">
-          <div className="flex justify-between items-center">
-            <p className="text-gray-600">Full Name</p>
-            <p className="font-semibold text-teal-800">{user.fullName}</p>
-          </div>
-          
-          <div className="flex justify-between items-center">
-            <p className="text-gray-600">Email</p>
-            <p className="font-semibold text-teal-800">{user.email}</p>
-          </div>
-          
-          <div className="flex justify-between items-center">
-            <p className="text-gray-600">Wallet Balance</p>
-            <p className="font-semibold text-green-600">₦{user.walletBalance}</p>
-          </div>
-          
-          <div className="flex justify-between items-center">
-            <p className="text-gray-600">Membership Status</p>
-            <p className={`font-semibold ${user.membershipStatus === "Premium" ? 'text-teal-600' : 'text-gray-600'}`}>
-              {user.membershipStatus}
-            </p>
+    <div className="min-h-screen bg-gray-100 flex flex-col">
+      {/* Main Content Area */}
+      <main className="flex-1 p-4 overflow-y-auto">
+        <div className="bg-white p-6 rounded-lg shadow-md">
+          {renderContent()}
+        </div>
+      </main>
+
+      {/* Bottom Navigation Bar */}
+      <nav className="bg-white shadow-md fixed bottom-0 left-0 right-0">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            {/* Home Button */}
+            <button
+              onClick={() => setActiveTab("home")}
+              className={`flex flex-col items-center justify-center w-full py-2 ${
+                activeTab === "home"
+                  ? "text-blue-500"
+                  : "text-gray-700 hover:text-gray-900"
+              }`}
+            >
+              <FaHome className="text-2xl" />
+              <span className="text-xs mt-1">Home</span>
+            </button>
+
+            {/* Profile Button */}
+            <button
+              onClick={() => setActiveTab("profile")}
+              className={`flex flex-col items-center justify-center w-full py-2 ${
+                activeTab === "profile"
+                  ? "text-blue-500"
+                  : "text-gray-700 hover:text-gray-900"
+              }`}
+            >
+              <FaUser className="text-2xl" />
+              <span className="text-xs mt-1">Profile</span>
+            </button>
+
+            {/* Settings Button */}
+            <button
+              onClick={() => setActiveTab("settings")}
+              className={`flex flex-col items-center justify-center w-full py-2 ${
+                activeTab === "settings"
+                  ? "text-blue-500"
+                  : "text-gray-700 hover:text-gray-900"
+              }`}
+            >
+              <FaCog className="text-2xl" />
+              <span className="text-xs mt-1">Settings</span>
+            </button>
+
+            {/* Logout Button */}
+            <button
+              onClick={handleLogout}
+              className="flex flex-col items-center justify-center w-full py-2 text-gray-700 hover:text-gray-900"
+            >
+              <FaSignOutAlt className="text-2xl" />
+              <span className="text-xs mt-1">Logout</span>
+            </button>
           </div>
         </div>
-      </div>
+      </nav>
     </div>
   );
 }

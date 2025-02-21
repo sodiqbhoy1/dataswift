@@ -1,164 +1,163 @@
-// pages/index.js
-import Head from "next/head";
-import Link from "next/link";
-import Navbar from "../navbar/page";
+import Head from 'next/head';
+import Navbar from '../navbar/page';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background text-secondary">
       <Head>
-        <title>DataSwift - Buy Airtime and Data Instantly</title>
-        <meta
-          name="description"
-          content="Buy airtime and mobile data instantly with DataSwift. Fast, reliable, and easy to use."
-        />
+        <title>Buy Mobile Data & Airtime in Nigeria</title>
+        <meta name="description" content="Buy affordable mobile data and airtime for MTN, Glo, Airtel, and 9mobile in Nigeria." />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       {/* Navbar */}
-      <Navbar />
+      <Navbar/>
 
       {/* Hero Section */}
-      <section
-        className="text-center py-32 relative overflow-hidden"
-        style={{
-          backgroundImage: `url("/waves.svg")`, // Update this line to point to your SVG file
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundColor: "#030f0f", // Dark background color
-        }}
-      >
-        <div className="max-w-4xl mx-auto px-6 relative z-10">
-          <h1 className="text-5xl md:text-6xl font-bold text-[#fe6807] mb-6">
-            Buy Airtime and Data <br /> in Seconds
-          </h1>
-          <p className="text-lg md:text-xl text-[#00df82] mb-8">
-            Fast, reliable, and easy to use. Get your airtime and mobile data
-            instantly with DataSwift.
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+        {/* Full-screen SVG shape */}
+        <div className="absolute inset-0 z-0">
+          <svg
+            viewBox="0 0 1440 800"
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-full h-full"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M0 100 C200 300 400 50 600 100 S1000 0 1200 100 L1440 0 V800 H0 Z"
+              fill="#fe6807"
+              fillOpacity="0.1"
+            />
+          </svg>
+        </div>
+        <div className="relative z-10 text-center">
+          <h2 className="text-5xl font-bold mb-6">
+            Buy Mobile Data & Airtime Instantly
+          </h2>
+          <p className="text-lg mb-8 max-w-2xl mx-auto">
+            Get the best rates for MTN, Glo, Airtel, and 9mobile. Fast, reliable, and affordable.
           </p>
           <div className="space-x-4">
-            <Link
-              href="/signup"
-              className="bg-gradient-to-r from-[#03624c] to-[#00df82] text-white px-8 py-3 rounded-lg hover:from-[#03624c] hover:to-[#00df82] transition duration-300 transform hover:scale-105"
-            >
-              Get Started
-            </Link>
-            <Link
-              href="/features"
-              className="bg-transparent text-white px-8 py-3 rounded-lg border border-white hover:bg-white hover:text-[#030f0f] transition duration-300"
-            >
+            <button className="bg-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-opacity-90 transition duration-300">
+              Buy Now
+            </button>
+            <button className="border-2 border-primary text-primary px-8 py-3 rounded-full font-semibold hover:bg-primary hover:text-white transition duration-300">
               Learn More
-            </Link>
+            </button>
           </div>
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="max-w-7xl mx-auto px-6 py-20">
-        <h2 className="text-3xl md:text-4xl font-bold text-[#03624c] text-center mb-16">
-          Why Choose DataSwift?
-        </h2>
+      {/* Supported Networks Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-6 text-center">
+          <h2 className="text-3xl font-bold mb-12">Supported Networks</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="p-6 bg-background rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+              <img src="/mtn.svg" alt="MTN" className="w-24 h-24 mx-auto mb-4" />
+              <p className="text-lg font-semibold">MTN</p>
+            </div>
+            <div className="p-6 bg-background rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+              <img src="/glo.svg" alt="Glo" className="w-24 h-24 mx-auto mb-4" />
+              <p className="text-lg font-semibold">Glo</p>
+            </div>
+            <div className="p-6 bg-background rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+              <img src="/airtel.png" alt="Airtel" className="w-24 h-24 mx-auto mb-4" />
+              <p className="text-lg font-semibold">Airtel</p>
+            </div>
+            <div className="p-6 bg-background rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+              <img src="/9mobile.svg" alt="9mobile" className="w-24 h-24 mx-auto mb-4" />
+              <p className="text-lg font-semibold">9mobile</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works Section */}
+      <section className="container mx-auto px-6 py-20">
+        <h2 className="text-3xl font-bold text-center mb-12">How It Works</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Feature 1: Instant Delivery */}
-          <div className="text-center bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-            <div className="bg-[#03624c] p-6 rounded-full w-20 h-20 mx-auto mb-6 flex items-center justify-center">
-              <svg
-                className="w-10 h-10 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                />
-              </svg>
-            </div>
-            <h3 className="text-2xl font-semibold text-[#03624c] mb-4">
-              Instant Delivery
-            </h3>
+          <div className="p-8 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+            <h3 className="text-xl font-bold mb-4">1. Sign Up</h3>
             <p className="text-gray-600">
-              Get your airtime and data delivered to your phone instantly.
+              Create an account on DataPlus to start buying data and airtime.
             </p>
           </div>
-
-          {/* Feature 2: 24/7 Support */}
-          <div className="text-center bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-            <div className="bg-[#03624c] p-6 rounded-full w-20 h-20 mx-auto mb-6 flex items-center justify-center">
-              <svg
-                className="w-10 h-10 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-            </div>
-            <h3 className="text-2xl font-semibold text-[#03624c] mb-4">
-              24/7 Support
-            </h3>
+          <div className="p-8 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+            <h3 className="text-xl font-bold mb-4">2. Choose a Plan</h3>
             <p className="text-gray-600">
-              We’re here to help you anytime, anywhere.
+              Select from a variety of affordable data and airtime plans.
             </p>
           </div>
-
-          {/* Feature 3: Secure Payments */}
-          <div className="text-center bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-            <div className="bg-[#03624c] p-6 rounded-full w-20 h-20 mx-auto mb-6 flex items-center justify-center">
-              <svg
-                className="w-10 h-10 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-            </div>
-            <h3 className="text-2xl font-semibold text-[#03624c] mb-4">
-              Secure Payments
-            </h3>
+          <div className="p-8 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+            <h3 className="text-xl font-bold mb-4">3. Make Payment</h3>
             <p className="text-gray-600">
-              Your payments are safe and secure with Paystack.
+              Pay securely using your preferred payment method.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Call-to-Action Section */}
-      <section className="bg-[#030f0f] py-20">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#ffc01d] mb-6">
-            Ready to Get Started?
-          </h2>
-          <p className="text-lg md:text-xl text-gray-200 mb-8">
-            Join thousands of satisfied customers enjoying instant airtime and
-            data with DataSwift.
-          </p>
-          <Link
-            href="/signup"
-            className="bg-gradient-to-r from-[#03624c] to-[#00df82] text-white px-8 py-3 rounded-lg hover:from-[#03624c] hover:to-[#00df82] transition duration-300 transform hover:scale-105"
-          >
-            Sign Up Now
-          </Link>
+      {/* Testimonials Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl font-bold text-center mb-12">What Our Customers Say</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="p-8 bg-background rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+              <p className="text-gray-600 mb-4">
+                "DataPlus is my go-to app for buying data. The rates are unbeatable!"
+              </p>
+              <p className="font-semibold">— Chinedu O.</p>
+            </div>
+            <div className="p-8 bg-background rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+              <p className="text-gray-600 mb-4">
+                "I love how fast the delivery is. My data is always topped up in seconds."
+              </p>
+              <p className="font-semibold">— Adaobi M.</p>
+            </div>
+            <div className="p-8 bg-background rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+              <p className="text-gray-600 mb-4">
+                "The support team is amazing. They helped me resolve an issue in minutes."
+              </p>
+              <p className="font-semibold">— Tunde A.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Plans Section */}
+      <section className="container mx-auto px-6 py-20">
+        <h2 className="text-3xl font-bold text-center mb-12">Affordable Pricing</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="p-8 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+            <h3 className="text-xl font-bold mb-4">MTN Data Plans</h3>
+            <p className="text-gray-600 mb-4">From ₦500 for 1GB</p>
+            <button className="bg-primary text-white px-6 py-2 rounded-full font-semibold hover:bg-opacity-90 transition duration-300">
+              Buy Now
+            </button>
+          </div>
+          <div className="p-8 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+            <h3 className="text-xl font-bold mb-4">Airtel Data Plans</h3>
+            <p className="text-gray-600 mb-4">From ₦500 for 1GB</p>
+            <button className="bg-primary text-white px-6 py-2 rounded-full font-semibold hover:bg-opacity-90 transition duration-300">
+              Buy Now
+            </button>
+          </div>
+          <div className="p-8 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+            <h3 className="text-xl font-bold mb-4">Glo Data Plans</h3>
+            <p className="text-gray-600 mb-4">From ₦500 for 1GB</p>
+            <button className="bg-primary text-white px-6 py-2 rounded-full font-semibold hover:bg-opacity-90 transition duration-300">
+              Buy Now
+            </button>
+          </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#030f0f] text-white py-12">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <p className="text-gray-400">
-            &copy; {new Date().getFullYear()} DataSwift. All rights reserved.
+      <footer className="py-10 bg-white shadow-sm">
+        <div className="container mx-auto px-6 text-center">
+          <p className="text-gray-600">
+            &copy; {new Date().getFullYear()} DataPlus. All rights reserved.
           </p>
         </div>
       </footer>

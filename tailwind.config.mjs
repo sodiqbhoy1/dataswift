@@ -8,8 +8,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        primary: '#fe6807', // Orange for accents
+        secondary: '#09080d', // Dark text
+        background: '#f9fafb', // Light background
+      },
+      backgroundImage: {
+        'hero-gradient': 'linear-gradient(to bottom, rgba(254, 104, 7, 0.6), rgba(254, 104, 7, 0.4))',
       },
     },
   },
