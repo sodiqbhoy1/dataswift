@@ -1,7 +1,39 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import  PaystackPop  from "@paystack/inline-js";
 
 export default function Data() {
+  const [selectedNetwork, setSelectedNetwork] = useState(null);
+
+  useEffect(() => {
+    // Ensure that Paystack is only initialized in the browser (client-side)
+    if (typeof window !== "undefined") {
+      const paystack = new PaystackPop();
+    }
+  }, []);
+
+  // Function to handle Paystack payment
+  const handlePayment = (data_amount, email) => {
+    const paystack = new PaystackPop(); // Ensure this is available in the browser context
+
+    paystack.newTransaction({
+      key: "pk_live_973da5bad14f2a295609bf58ffe31d5bda3a344e", // Your actual Paystack public key
+      email: email, // User's email
+      amount: data_amount * 100, // Amount in kobo (e.g., ₦500 = 50000 kobo)
+      onSuccess: (transaction) => {
+        // Payment successful!
+        console.log("Payment successful!", transaction);
+        alert("Payment successful!");
+      },
+      onCancel: () => {
+        // User canceled the payment
+        console.log("Payment canceled.");
+        alert("Payment canceled.");
+      },
+    });
+  };
+
+  // Data for networks and plans
   const data = {
     networks: [
       {
@@ -46,8 +78,6 @@ export default function Data() {
       },
     ],
   };
-
-  const [selectedNetwork, setSelectedNetwork] = useState(null);
 
   // Handle network click
   const handleNetworkClick = (network) => {
@@ -101,7 +131,16 @@ export default function Data() {
                     {plan.data_quantity} - {plan.expiry}
                   </td>
                   <td className="px-4 py-2 border border-gray-200">
-                    <button className="bg-primary text-white py-1 px-4 rounded-md hover:bg-opacity-90 transition duration-300 text-sm sm:text-base">
+                    {/* Buy Now Button */}
+                    <button
+                      onClick={() =>
+                        handlePayment(
+                          parseFloat(plan.data_amount.replace("₦", "")), // Extract amount (e.g., ₦500 -> 500)
+                          "user@example.com" // Replace with the user's email
+                        )
+                      }
+                      className="bg-primary text-white py-1 px-4 rounded-md hover:bg-opacity-90 transition duration-300 text-sm sm:text-base"
+                    >
                       Buy Now
                     </button>
                   </td>
