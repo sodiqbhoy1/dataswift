@@ -12,12 +12,14 @@ export default function Airtime() {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10 bg-white p-6 rounded-lg shadow-lg">
-      <h2 className="text-2xl font-semibold mb-6 text-center">Airtime Purchase</h2>
+    <div className="max-w-md mx-auto mt-10 bg-background p-6 rounded-lg shadow-lg">
+      <h2 className="text-2xl font-semibold mb-6 text-center text-secondary">
+        Airtime Purchase
+      </h2>
 
       {/* Network Selection */}
       <div className="mb-4">
-        <label htmlFor="network" className="block text-sm font-medium text-gray-700">
+        <label htmlFor="network" className="block text-sm font-medium text-secondary">
           Select Network
         </label>
         <select
@@ -25,7 +27,7 @@ export default function Airtime() {
           name="network"
           value={network}
           onChange={(e) => setNetwork(e.target.value)}
-          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
         >
           <option value="">-- Choose Network --</option>
           <option value="MTN">MTN</option>
@@ -37,7 +39,7 @@ export default function Airtime() {
 
       {/* Phone Number Input */}
       <div className="mb-4">
-        <label htmlFor="phoneNumber" className="block text-sm font-medium text-gray-700">
+        <label htmlFor="phoneNumber" className="block text-sm font-medium text-secondary">
           Phone Number
         </label>
         <input
@@ -47,13 +49,13 @@ export default function Airtime() {
           value={phoneNumber}
           onChange={(e) => setPhoneNumber(e.target.value)}
           placeholder="Enter your phone number"
-          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
         />
       </div>
 
       {/* Amount Input */}
       <div className="mb-6">
-        <label htmlFor="amount" className="block text-sm font-medium text-gray-700">
+        <label htmlFor="amount" className="block text-sm font-medium text-secondary">
           Amount
         </label>
         <input
@@ -63,7 +65,7 @@ export default function Airtime() {
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
           placeholder="Enter amount"
-          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
         />
       </div>
 
@@ -71,7 +73,7 @@ export default function Airtime() {
       <div className="flex justify-center">
         <button
           onClick={handlePayment}
-          className="w-full bg-blue-500 text-white py-2 px-4 rounded-md shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full bg-primary text-white py-2 px-4 rounded-md shadow-md hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-primary"
         >
           Pay
         </button>

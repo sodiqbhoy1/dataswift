@@ -55,13 +55,13 @@ export default function Data() {
   };
 
   return (
-    <div className="flex justify-center items-center flex-col bg-gray-100 p-6">
+    <div className="flex justify-center items-center flex-col bg-background p-6">
       {/* Network List */}
       <div className="flex space-x-4 mb-6">
         {data.networks.map((network, index) => (
           <div
             key={index}
-            className="cursor-pointer bg-teal-500 text-white py-2 px-4 rounded-lg hover:bg-teal-600 transition duration-300 ease-in-out"
+            className="cursor-pointer bg-primary text-white py-2 px-4 rounded-lg hover:bg-opacity-90 transition duration-300 ease-in-out"
             onClick={() => handleNetworkClick(network)}
           >
             {network.name}
@@ -72,28 +72,36 @@ export default function Data() {
       {/* Display Data Plans for Selected Network */}
       {selectedNetwork ? (
         <div className="bg-white p-6 rounded-lg shadow-lg max-w-4xl w-full">
-          <h2 className="text-2xl font-semibold mb-4 text-center text-teal-600">
+          <h2 className="text-2xl font-semibold mb-4 text-center text-primary">
             Data Plans for {selectedNetwork.name}
           </h2>
 
           {/* Table for Data Plans */}
           <table className="min-w-full table-auto bg-gray-50 border-collapse">
-            <thead className="bg-teal-500 text-white">
+            <thead className="bg-primary text-white">
               <tr>
-                <th className="px-4 py-2 text-left border border-gray-200">Amount</th>
-                <th className="px-4 py-2 text-left border border-gray-200">Data Quantity</th>
-                <th className="px-4 py-2 text-left border border-gray-200">Expiry</th>
-                <th className="px-4 py-2 text-left border border-gray-200">Action</th>
+                <th className="px-4 py-2 text-left border border-gray-200 text-sm sm:text-base">
+                  Amount
+                </th>
+                <th className="px-4 py-2 text-left border border-gray-200 text-sm sm:text-base">
+                  Data Quantity
+                </th>
+                <th className="px-4 py-2 text-left border border-gray-200 text-sm sm:text-base">
+                  Action
+                </th>
               </tr>
             </thead>
             <tbody>
               {selectedNetwork.data_plans.map((plan, index) => (
                 <tr key={index} className="hover:bg-gray-100">
-                  <td className="px-4 py-2 border border-gray-200">{plan.data_amount}</td>
-                  <td className="px-4 py-2 border border-gray-200">{plan.data_quantity}</td>
-                  <td className="px-4 py-2 border border-gray-200">{plan.expiry}</td>
+                  <td className="px-4 py-2 border border-gray-200 text-sm sm:text-base">
+                    {plan.data_amount}
+                  </td>
+                  <td className="px-4 py-2 border border-gray-200 text-sm sm:text-base">
+                    {plan.data_quantity} - {plan.expiry}
+                  </td>
                   <td className="px-4 py-2 border border-gray-200">
-                    <button className="bg-teal-500 text-white py-1 px-4 rounded-md hover:bg-teal-600 transition duration-300">
+                    <button className="bg-primary text-white py-1 px-4 rounded-md hover:bg-opacity-90 transition duration-300 text-sm sm:text-base">
                       Buy Now
                     </button>
                   </td>
@@ -103,7 +111,9 @@ export default function Data() {
           </table>
         </div>
       ) : (
-        <div className="text-center text-gray-500">Select a network to see the plans</div>
+        <div className="text-center text-secondary">
+          Select a network to see the plans
+        </div>
       )}
     </div>
   );
